@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "../index.css";
-import Providers from "@/components/providers";
-import Header from "@/components/header";
+import Providers from "@/components/common/providers";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -14,10 +13,19 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+	variable: "--font-playfair",
+	subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-	title: "ecommerce",
-	description: "ecommerce",
+	title: "Luxe Jewelry",
+	description: "Premium Jewelry Collection",
 };
+
+
+
+// ... imports
 
 export default function RootLayout({
 	children,
@@ -27,13 +35,10 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased font-sans`}
 			>
 				<Providers>
-					<div className="grid grid-rows-[auto_1fr] h-svh">
-						<Header />
-						{children}
-					</div>
+					{children}
 				</Providers>
 			</body>
 		</html>

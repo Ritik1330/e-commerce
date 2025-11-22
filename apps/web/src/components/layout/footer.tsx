@@ -1,0 +1,97 @@
+import Link from "next/link";
+import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export default function Footer() {
+	return (
+		<footer className="bg-secondary/30 border-t">
+			<div className="container mx-auto px-4 py-12">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+					{/* Brand */}
+					<div className="space-y-4">
+						<h3 className="font-serif text-xl font-bold">LUXE JEWELRY</h3>
+						<p className="text-sm text-muted-foreground">
+							Crafting timeless elegance for the modern soul.
+						</p>
+						<div className="flex gap-4">
+							<Link href="#" className="text-muted-foreground hover:text-primary">
+								<Instagram className="h-5 w-5" />
+							</Link>
+							<Link href="#" className="text-muted-foreground hover:text-primary">
+								<Facebook className="h-5 w-5" />
+							</Link>
+							<Link href="#" className="text-muted-foreground hover:text-primary">
+								<Twitter className="h-5 w-5" />
+							</Link>
+						</div>
+					</div>
+
+					{/* Shop */}
+					<div>
+						<h4 className="font-medium mb-4">Shop</h4>
+						<ul className="space-y-2 text-sm text-muted-foreground">
+							<li>
+								<Link href="/collections/necklaces" className="hover:text-primary">
+									Necklaces
+								</Link>
+							</li>
+							<li>
+								<Link href="/collections/earrings" className="hover:text-primary">
+									Earrings
+								</Link>
+							</li>
+							<li>
+								<Link href="/collections/rings" className="hover:text-primary">
+									Rings
+								</Link>
+							</li>
+							<li>
+								<Link href="/collections/bracelets" className="hover:text-primary">
+									Bracelets
+								</Link>
+							</li>
+						</ul>
+					</div>
+
+					{/* Support */}
+					<div>
+						<h4 className="font-medium mb-4">Support</h4>
+						<ul className="space-y-2 text-sm text-muted-foreground">
+							<li>
+								<Link href="/contact" className="hover:text-primary">
+									Contact Us
+								</Link>
+							</li>
+							<li>
+								<Link href="/faq" className="hover:text-primary">
+									FAQs
+								</Link>
+							</li>
+							<li>
+								<Link href="/shipping" className="hover:text-primary">
+									Shipping & Returns
+								</Link>
+							</li>
+						</ul>
+					</div>
+
+					{/* Newsletter */}
+					<div>
+						<h4 className="font-medium mb-4">Newsletter</h4>
+						<p className="text-sm text-muted-foreground mb-4">
+							Subscribe to receive updates, access to exclusive deals, and more.
+						</p>
+						<div className="flex gap-2">
+							<Input placeholder="Enter your email" className="bg-background" />
+							<Button>Subscribe</Button>
+						</div>
+					</div>
+				</div>
+				<div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
+					© {new Date().getFullYear()} Luxe Jewelry. All rights reserved.
+				</div>
+			</div>
+		</footer>
+	);
+}
