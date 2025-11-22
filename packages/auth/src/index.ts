@@ -1,6 +1,6 @@
-import { betterAuth, type BetterAuthOptions } from "better-auth";
-import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { client } from "@ecommerce/db";
+import { type BetterAuthOptions, betterAuth } from "better-auth";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 export const auth = betterAuth<BetterAuthOptions>({
 	database: mongodbAdapter(client),
