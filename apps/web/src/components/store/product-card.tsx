@@ -31,7 +31,7 @@ export default function ProductCard({ id, title, price, image, category }: Produ
 				<Link href={`/product/${id}`} className="font-medium hover:underline">
 					{title}
 				</Link>
-				<p className="text-sm font-semibold">${price.toFixed(2)}</p>
+				<p className="text-sm font-semibold">₹{price.toFixed(2)}</p>
 			</CardFooter>
 		</Card>
 	);

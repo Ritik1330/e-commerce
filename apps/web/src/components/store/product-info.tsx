@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Product } from "@/lib/data";
+import type { Product } from "@/lib/data";
 import { ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
 
@@ -21,7 +21,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 					{product.title}
 				</h1>
 				<p className="mt-2 text-xl font-medium text-primary">
-					${product.price.toFixed(2)}
+					₹{product.price.toFixed(2)}
 				</p>
 			</div>
 
