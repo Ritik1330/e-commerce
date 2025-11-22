@@ -5,6 +5,7 @@ import type { Product } from "@/lib/data";
 import { ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
 import { useCart } from "@/lib/cart-context";
+import { useRouter } from "next/navigation";
 
 interface ProductInfoProps {
 	product: Product;
@@ -12,9 +13,15 @@ interface ProductInfoProps {
 
 export default function ProductInfo({ product }: ProductInfoProps) {
 	const { addItem } = useCart();
+	const router = useRouter();
 
 	const handleAddToCart = () => {
 		addItem(product);
+	};
+
+	const handleBuyNow = () => {
+		addItem(product);
+		router.push("/checkout");
 	};
 
 	return (
@@ -33,10 +40,15 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 			</div>
 
 			<div className="flex flex-col gap-4 pt-6 border-t">
-				<Button size="lg" className="w-full md:w-auto" onClick={handleAddToCart}>
-					<ShoppingBag className="mr-2 h-5 w-5" />
-					Add to Cart
-				</Button>
+				<div className="flex gap-4 w-full md:w-auto">
+					<Button size="lg" className="flex-1 md:flex-none" onClick={handleAddToCart}>
+						<ShoppingBag className="mr-2 h-5 w-5" />
+						Add to Cart
+					</Button>
+					<Button size="lg" variant="secondary" className="flex-1 md:flex-none" onClick={handleBuyNow}>
+						Buy Now
+					</Button>
+				</div>
 				<p className="text-xs text-muted-foreground text-center md:text-left">
 					Free shipping on all orders over $500.
 				</p>
